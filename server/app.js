@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt")
 
 dotenv.config({path : 'config.env'})
 
+const port = process.env.PORT || 5000
+
 app.use(express.json())
 
 require("./db/conn")
@@ -172,4 +174,4 @@ app.post("/userlogin",async (req,res)=>{
 })
 
 
-app.listen(5000)
+app.listen(port)

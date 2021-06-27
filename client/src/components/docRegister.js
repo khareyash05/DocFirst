@@ -65,9 +65,9 @@ function DocRegister(){
                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
                         </div>
                         <div className="mb-3">                            
-                            <input type="text" className="form-control" 
+                            <input type="text"  name = "specialisation"
                             value = {user.specialisation} onChange = {handleInputs}
-                            placeholder = "Specialisation" name = "specialisation"/>
+                            placeholder = "Specialisation" className="form-control"/>
                         </div>
                         <div className="mb-3">                           
                             <input type="password" name = "password" 

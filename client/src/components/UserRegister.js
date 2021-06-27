@@ -4,7 +4,7 @@ import {useHistory} from "react-router-dom"
 function UserRegister(){
     const history = useHistory()
     const [user, setUser] = useState({
-        name : "" , email : "" , phone : "" , work : "" , password : "" , cpassword : ""
+        name : "" , email : "" ,password : "" , cpassword : ""
     })
     let name,value
     const handleInputs = (e)=>{
@@ -15,14 +15,14 @@ function UserRegister(){
 
     const PostData = async(e) =>{
         e.preventDefault()
-        const {name , email , phone , work , password , cpassword } = user
+        const {name , email ,password , cpassword } = user
         const res = await fetch("/userregister",{
             method : "POST",
             headers : {
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify({
-                name , email , phone , work , password , cpassword
+                name , email ,password , cpassword
             })
         })
         const data = await res.json()
@@ -63,12 +63,7 @@ function UserRegister(){
                             value = {user.email} onChange = {handleInputs}
                             placeholder = "Email Address" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"/>
                             <div id="emailHelp" className="form-text">We'll never share your email with anyone else.</div>
-                        </div>
-                        <div className="mb-3">                            
-                            <input type="number" name = "phone" 
-                            value = {user.phone} onChange = {handleInputs}
-                            placeholder = "Phone Number" className="form-control"/>
-                        </div>
+                        </div>                        
                         <div className="mb-3">                           
                             <input type="password" name = "password" 
                             value = {user.password} onChange = {handleInputs}

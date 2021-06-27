@@ -5,6 +5,8 @@ import Register from "./components/Register"
 import Login from "./components/Login"
 import Footer from "./components/Footer"
 import Profile from "./components/Profile"
+import DocRegister from './components/docRegister';
+import UserRegister from './components/UserRegister';
 import {Route} from "react-router-dom"
 
 function App() {
@@ -14,13 +16,19 @@ function App() {
       <Route exact path = "/">
         <Home/>
       </Route>
-      <Route exact path = "/register">
+      <Route path = "/register">
         <Register/>
       </Route>
-      <Route exact path = "/login">
+      <Route path = "/docregister">
+        <DocRegister/>
+      </Route>
+      <Route path = "/userregister">
+        <UserRegister/>
+      </Route>
+      <Route path = "/login">
         <Login/>
       </Route>
-      <Route exact path = "/myprofile">
+      <Route path = "/myprofile">
         <Profile/>
       </Route>
       <Footer/>

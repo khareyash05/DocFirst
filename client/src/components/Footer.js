@@ -4,12 +4,12 @@ import 'bootstrap/dist/css/bootstrap.css'
 const Footer = () => {
     return (
         <div>
-            <footer class="page-footer sticky font-small blue pt-4" style={{backgroundColor:"darkgreen"}}>
+            <footer class="footer font-small blue pt-4" style={{backgroundColor:"darkgreen",position:"static",left: 0,bottom: 0,width:"100%"}}>
                 <div class="container-fluid text-center text-md-left">
                     <div class="row">
                     <div class="col-md-6 mt-md-0 mt-3">
-                        <h5 class="text-uppercase">Footer Content</h5>
-                        <p>Here you can use rows and columns to organize your footer content.</p>
+                        <h5 class="text-uppercase" style={{color:"white"}}>DocFirst</h5>
+                        <p style={{color:"white"}}>24*7 consultation</p>
                     </div>
                     {/* <!-- Grid column --> */}
 

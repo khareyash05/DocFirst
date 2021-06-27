@@ -9,7 +9,7 @@ function Navbar(){
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <NavLink className="navbar-brand" to="/">DocFirst&nbsp;<LocalHospitalIcon/></NavLink>
                 <div class="container-fluid">
-                <NavLink className="nav-link" to="/">Home</NavLink>
+                    <NavLink className="nav-link" to="/">Home</NavLink>
                     <button
                     class="navbar-toggler"
                     type="button"

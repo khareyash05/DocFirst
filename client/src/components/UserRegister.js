@@ -26,14 +26,14 @@ function UserRegister(){
             })
         })
         const data = await res.json()
-        if(data.status === 422 || !data){
-            window.alert("Invalid Registration")
+        if(res.status === 422 || !data){
+            window.alert("Invalid Registration Please check your email id and password")
             console.log("Invalid Registration");
         }
         else {
             window.alert("DOne Registration")
             console.log("DOne Registration");
-            // history.push("/login")
+            history.push("/login")
         }
     }
     return(

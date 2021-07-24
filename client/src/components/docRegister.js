@@ -26,10 +26,8 @@ function DocRegister(){
             })
         })
         const data = await res.json()
-        console.log(data)
-        console.log(res.status) // giving undefined need to fix this
         if(res.status === 422 || !data){
-            window.alert("Invalid Registration")
+            window.alert("Invalid Registration Please check your email id and password")
             console.log("Invalid Registration");
         }
         else {

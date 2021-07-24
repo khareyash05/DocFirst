@@ -85,12 +85,11 @@ app.post('/docregister',async (req,res)=>{
 app.post("/doclogin",async (req,res)=>{
     const{email,password} = req.body
     if(!email||!password){
-        return res.status(422).json({"Message":"fill the field"})
+        return res.status(400).json({"Message":"fill the field"})
     }
 
     try{
         const DoctorLogin = await Doctor.findOne({email : email})
-        // console.log(userLogin);
         if(DoctorLogin){
             const passMatch1 = await bcrypt.compare(password,DoctorLogin.password)
             console.log(passMatch1);
@@ -103,7 +102,7 @@ app.post("/doclogin",async (req,res)=>{
         }
         else{
             console.log("Doctor not registered");
-            return res.status(500).json({"message" : "Dcotor not registered"})            
+            return res.status(400).json({"message" : "Doctor not registered"})            
         }
     }catch(err){
         console.log(err);

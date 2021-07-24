@@ -7,6 +7,8 @@ import Footer from "./components/Footer"
 import Profile from "./components/Profile"
 import DocRegister from './components/docRegister';
 import UserRegister from './components/UserRegister';
+import DocLogin from './components/docLogin';
+import UserLogin from './components/UserLogin';
 import {Route} from "react-router-dom"
 
 function App() {
@@ -24,6 +26,12 @@ function App() {
       </Route>
       <Route path = "/userregister">
         <UserRegister/>
+      </Route>
+      <Route path = "/doclogin">
+        <DocLogin/>
+      </Route>
+      <Route path = "/userlogin">
+        <UserLogin/>
       </Route>
       <Route path = "/login">
         <Login/>

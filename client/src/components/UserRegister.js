@@ -33,7 +33,7 @@ function UserRegister(){
         else {
             window.alert("DOne Registration")
             console.log("DOne Registration");
-            history.push("/login")
+            // history.push("/login")
         }
     }
     return(

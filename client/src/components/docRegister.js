@@ -15,7 +15,7 @@ function DocRegister(){
 
     const PostData = async(e) =>{
         e.preventDefault()
-        const {name , email ,specialisation ,password , cpassword } = user
+        const {name,email,specialisation,password,cpassword } = user
         const res = await fetch("/docregister",{
             method : "POST",
             headers : {
@@ -26,7 +26,9 @@ function DocRegister(){
             })
         })
         const data = await res.json()
-        if(data.status === 422 || !data){
+        console.log(data)
+        console.log(res.status) // giving undefined need to fix this
+        if(res.status === 422 || !data){
             window.alert("Invalid Registration")
             console.log("Invalid Registration");
         }

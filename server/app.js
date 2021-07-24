@@ -35,36 +35,42 @@ app.get("/userregister",(req,res)=>{
 })
 
 app.post('/docregister',async (req,res)=>{
-    const {name,email,specialisation,password,cpassword} = req.body
+    let {name,email,specialisation,password,cpassword} = req.body
+    console.log("backend")
+    console.log(name,email,specialisation,password,cpassword)
     
     if(!name||!email||!specialisation||!password||!cpassword){
+        console.log("Fill the field")
         return res.status(422).json({error: "FIll the field"})
     }   
     
     try{
-        const userExist = await Doctor.findOne({email : email})
+        const DoctorExist = await Doctor.findOne({email : email})
         // userExist will return whole each and every thing if found email same , else null
-        if(userExist){
+        if(DoctorExist){
+            console.log("Email already");
             return res.status(422).json({error: "Email already exist"})
         }
         else if(password !== cpassword){
+            console.log("Passwords dont match");
             return res.status(422).json({error: "Passwords are not same"})
         }
         else{
             // New user making
             bcrypt.hash(password,10,function(err,hash){
-                const newUser = new Doctor({
+                const newDoctor = new Doctor({
                     name : name,
                     email : email,
                     specialisation:specialisation,                    
                     password : hash,
                     cpassword:hash
                 })
-                newUser.save((err)=>{
+                newDoctor.save((err)=>{
                     if(err){
                         console.log(err);
                     }
                     else { 
+                        console.log("Welcome");
                         res.status(201).json({message: "added sucessfully"})
                     }
                 })       
@@ -83,12 +89,12 @@ app.post("/doclogin",async (req,res)=>{
     }
 
     try{
-        const userLogin = await Doctor.findOne({email : email})
+        const DoctorLogin = await Doctor.findOne({email : email})
         // console.log(userLogin);
-        if(userLogin){
-            const passMatch = await bcrypt.compare(password,userLogin.password)
-            console.log(passMatch);
-            if(passMatch){
+        if(DoctorLogin){
+            const passMatch1 = await bcrypt.compare(password,DoctorLogin.password)
+            console.log(passMatch1);
+            if(passMatch1){
                 return res.status(200).json({"Message" : "Welcome"})                
             }
             else{
@@ -105,7 +111,7 @@ app.post("/doclogin",async (req,res)=>{
 })
 
 app.post('/userregister',async (req,res)=>{
-    const {name,email,password,cpassword} = req.body
+    let {name,email,password,cpassword} = req.body
     
     if(!name||!email||!password||!cpassword){
         return res.status(422).json({error: "FIll the field"})
